@@ -1,0 +1,169 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.modalHeader {
+    background: linear-gradient(45deg, #783fed, #442487);
+    color: white;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.closeButton {
+    background: transparent;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1rem;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.inputField {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputField label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.inputField input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.inputField input::placeholder {
+    color: #333;
+    font-size: 0.8rem;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkboxContainer label {
+    font-size: 0.9rem;
+}
+
+.saveButton {
+    background: linear-gradient(135deg, #783FED, #442487); 
+    color: white;
+    width: 20%;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    align-self: center;
+}
+
+.disabledButton{
+    background: #A4A4A4; 
+}
+
+.saveButton:hover {
+    background: #442487;
+}
+
+.inputField {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+  
+  .customFileInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.2rem 0rem;
+    font-size: 1rem;
+    color: #555;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .customFileInput input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .customFileInput .placeholder {
+    flex-grow: 1;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    color: #333;
+  }
+  
+  .customFileInput .uploadIcon {
+    color: #783FED;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+  

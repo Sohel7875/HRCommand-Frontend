@@ -1,0 +1,165 @@
+.signupContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+   
+}
+
+.signupForm {
+    background: #fff;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.signupForm h2 {
+    font-size: 2rem;
+    color: #442487;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.formGroup input {
+    border: 1px solid #E5E5E5;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(229, 229, 229, 0.5); 
+}
+
+.formGroup input:focus {
+    border-color: #E5E5E5;
+    box-shadow: 0 0 3px rgba(120, 63, 237, 0.5);
+}
+
+.passwordContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.passwordContainer input {
+    width: 100%;
+    padding-right: 3rem;
+}
+
+.toggleButton {
+    position: absolute;
+    right: 0.5rem;
+    top:0.8rem;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #783fed;
+    cursor: pointer;
+}
+
+.toggleButton:hover {
+    color: #442487;
+}
+
+.error {
+    font-size: 0.8rem;
+    color: red;
+    margin-top: -0.5rem;
+}
+
+.submitButton ,.loginButton{
+    background: linear-gradient(90deg, #783fed, #442487);
+    color: white;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    width: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.loginButton{
+    margin-top: 0rem;
+}
+
+.submitButton:hover,.loginButton:hover {
+    background: linear-gradient(90deg, #442487, #783fed);
+}
+
+.loginLink {
+    line-height: 1;
+    font-size: 0.9rem;
+    color: #442487;
+}
+
+.loginLink a {
+    color: #783fed;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.loginLink a:hover {
+    text-decoration: underline;
+}
+
+.forgotPassword {
+    font-size: 0.9rem;
+    color: #A4A4A4;
+    text-align: left;
+  }
+  
+  .forgotPassword a {
+    color: #A4A4A4;
+    text-decoration: none;
+  }
+  
+  .forgotPassword a:hover {
+    text-decoration: underline;
+  }
+
+  .loginAndForgotPassword{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+    
+  .authError {
+    color: #ff4d4f; 
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center; 
+    margin: 0.5rem 0;
+    background-color: rgba(255, 77, 79, 0.1); 
+    border: 1px solid #ff4d4f;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+.authSuccess {
+    background-color: #e7f8e4; 
+    color: #388e3c; 
+    border: 1px solid #66bb6a; 
+    font-size: 1rem; 
+    font-weight: 500;
+    text-align: center;
+    padding: 0.75rem 1rem; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(56, 142, 60, 0.2); 
+    max-width: 400px; 
+    
+}
