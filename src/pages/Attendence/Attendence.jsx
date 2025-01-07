@@ -2,6 +2,8 @@ import styles from './Attendence.module.css'
 import { FiMoreVertical, FiSearch } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 import axios from '../../api/axios';
+import useGetUsers from '../../hooks/useGetUsers';
+import useStatusChange from '../../hooks/useStatusChange';
 
 
 
@@ -16,33 +18,21 @@ const colorMap = {
 const Attendence = () => {
     const [employee, setEmployees] = useState([])
     const [openMenuIndex, setOpenMenuIndex] = useState(null);
-    const [attendenceError,setAttendeceError] = useState('')
-    const getAllEmployees = async () => {
-        try {
+    const [attendenceError, setAttendeceError] = useState('')
 
-            const res = await axios.get('/employee/getAllEmployees')
-
-            //   console.log(res)
-            if (res.status === 200) {
-                setEmployees(res.data.employees)
-            }
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    const getAllUsers = useGetUsers('/employee/getAllEmployees', setEmployees)
 
     useEffect(() => {
-        getAllEmployees()
+        getAllUsers()
     }, [])
 
     const handleStatusClick = (index) => {
         setAttendeceError('')
         setOpenMenuIndex(openMenuIndex === index ? null : index);
-      };
+    };
 
 
-      const handleClickOutside = (event) => {
+    const handleClickOutside = (event) => {
         if (!event.target.closest(`.${styles.statusMenu}`)) {
             setOpenMenuIndex(null);
         }
@@ -57,40 +47,11 @@ const Attendence = () => {
 
 
 
-      const handleStatusChange = async (status, employeeID) => {
-    
-        const prevEmployee = [...employee];
-    
-        const newEmployee = employee?.map((emp) => {
-          if (emp?._id === employeeID) {
-            return { ...emp, Status:status};
-          }
-          return emp;
-        });
-
-    
-        setEmployees(newEmployee)
-    
-        try {
-          const res = await axios.post('/employee/attendence/update', {  employeeID, status })
-          if (res.status === 201) {
-            setAttendeceError('')
-            setOpenMenuIndex(null)
-          } else {
-            setEmployees(prevEmployee)
-    
-          }
-    
-        } catch (error) {
-          console.error("Error updating employee status:", error?.response?.data?.message);
-          setAttendeceError( error?.response?.data?.message)
-          setEmployees(prevEmployee);
-        }
-    
-    
-    
-    
-      };
+    const handleStatusChangeHook = useStatusChange()
+    const handleStatusChange = async (status, employeeID) => {
+        console.log('/employee/attendence/update', status, employeeID, employee, setEmployees, setAttendeceError, setOpenMenuIndex)
+        handleStatusChangeHook('/employee/attendence/update', status, employeeID, employee, setEmployees, setAttendeceError, setOpenMenuIndex)
+    };
     return (
         <div>
             <div className={styles.CandidatesHeader}>
@@ -137,21 +98,21 @@ const Attendence = () => {
                                     <td>{employee.Task}</td>
                                     <td>
                                         <div className={styles.actionContainer}>
-                                            <span 
-                                            className={styles.Employeestatus}
-                                            style={{ color: colorMap[employee.Status] }}  
-                                            onClick={() => handleStatusClick(index)}> {employee?.Status}
-                                            
+                                            <span
+                                                className={styles.Employeestatus}
+                                                style={{ color: colorMap[employee.Status] }}
+                                                onClick={() => handleStatusClick(index)}> {employee?.Status}
+
                                             </span>
                                             <button
                                                 className={styles.statusMenuItem}
-                                                // onClick={() => handleMenuToggle(employee?._id)}
+                                            // onClick={() => handleMenuToggle(employee?._id)}
                                             >
                                                 <FiMoreVertical />
                                             </button>
                                             {openMenuIndex === index && (
                                                 <div className={styles.statusMenu}>
-                                                    {attendenceError?.length>0 && <span>{attendenceError}</span>}
+                                                    {attendenceError?.length > 0 && <span>{attendenceError}</span>}
 
                                                     {['Present', 'Work from Home', 'Medical Leave', 'Absent'].map(status => (
                                                         <button
@@ -159,7 +120,7 @@ const Attendence = () => {
                                                             onClick={() => handleStatusChange(status, employee?._id)}
                                                             className={styles.statusMenuItem}
                                                         >
-                                                            
+
                                                             {status}
                                                         </button>
                                                     ))}
