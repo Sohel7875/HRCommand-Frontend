@@ -1,0 +1,63 @@
+.calendarWrapper {
+  width: 100%;
+  height: 40vh;
+  margin: 0 auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.163);
+  border-radius: 0.4rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.navButton {
+  background: linear-gradient(45deg, #783fed, #442487);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.navButton:hover {
+  background: linear-gradient(45deg, #442487, #783fed);
+}
+
+.label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #442487;
+}
+
+
+.rbc-date-cell {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #ddd; 
+}
+
+
+.rbc-event {
+  background-color: transparent !important; /* Make the background transparent */
+  border: none !important; /* Remove any borders */
+  color: transparent !important; /* Make text invisible */
+  box-shadow: none !important; /* Remove any shadows */
+  pointer-events: none; /* Disable interaction with the default event */
+}
+
+.rbc-event-content {
+  color: transparent !important; /* Hide text inside the event */
+}
+

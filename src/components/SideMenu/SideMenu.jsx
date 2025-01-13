@@ -40,6 +40,12 @@ const SideMenuLinks = [
                 activeIcon: <FiCheckSquare />,
                 inactiveIcon: <FiSquare />,
             },
+            {
+                itemLink: 'Testing',
+                link: '/testing',
+                activeIcon: <FiCheckSquare />,
+                inactiveIcon: <FiSquare />,
+            },
         ],
     },
     {

@@ -49,7 +49,6 @@ const Attendence = () => {
 
     const handleStatusChangeHook = useStatusChange()
     const handleStatusChange = async (status, employeeID) => {
-        console.log('/employee/attendence/update', status, employeeID, employee, setEmployees, setAttendeceError, setOpenMenuIndex)
         handleStatusChangeHook('/employee/attendence/update', status, employeeID, employee, setEmployees, setAttendeceError, setOpenMenuIndex)
     };
     return (

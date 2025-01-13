@@ -8,6 +8,8 @@ import RequireAuth from './components/RequireAuth/RequireAuth'
 import PersistLogin from './components/PersistLogin/PersistLogin'
 import Employees from './pages/Employees/Employees'
 import Attendence from './pages/Attendence/Attendence'
+import Leaves from './pages/Leaves/Leaves'
+import Testing from './pages/Testing/Testing'
 
 const App = () => {
   return (
@@ -24,7 +26,8 @@ const App = () => {
             <Route path='/candidates' element={<Candidates />} />
             <Route path='/employees' element={<Employees />} />
             <Route path='/attendance' element={<Attendence />} />
-            <Route path='/leaves' element={<Candidates />} />
+            <Route path='/leaves' element={<Leaves />} />
+            <Route path='/testing' element={<Testing />} />
           </Route>
         </Route>
       </Route>
